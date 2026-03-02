@@ -9,37 +9,6 @@ import { useCart } from '@/components/providers/CartProvider';
 export function CartDrawer() {
   const { cart, isOpen, closeCart, updateQuantity, removeItem, itemCount, isLoading } = useCart();
 
-  // Función para generar mensaje de WhatsApp
-  const handleWhatsAppCheckout = () => {
-    if (!cart?.contents.nodes) return;
-
-    const phoneNumber = '56946152921'; // +56 9 4615 2919 sin el +
-
-    // Construir mensaje con productos
-    let message = '🛒 *Nuevo Pedido - Pinneacle Perfumería*\n\n';
-
-    cart.contents.nodes.forEach((item) => {
-      const productName = item.product.node.name;
-      const quantity = item.quantity;
-      const price = item.total || item.product.node.price;
-      const variation = item.variation ? `(${item.variation.node.name})` : '';
-
-      message += `• ${quantity}x ${productName} ${variation}\n`;
-      message += `  Precio: ${price}\n\n`;
-    });
-
-    message += `💰 *Total: ${cart.total}*\n\n`;
-    message += `Por favor confirmar mi pedido. ¡Gracias! 🙏`;
-
-    // Codificar mensaje para URL
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-    // Abrir WhatsApp en nueva pestaña
-    window.open(whatsappUrl, '_blank');
-    closeCart();
-  };
-
   // Cerrar carrito con ESC
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -212,12 +181,13 @@ export function CartDrawer() {
               </div>
             </div>
 
-            <button
-              onClick={handleWhatsAppCheckout}
+            <Link
+              href="/checkout"
+              onClick={closeCart}
               className="block w-full bg-green-700 text-white text-center py-3 px-6 rounded-lg font-moderat font-medium hover:bg-green-800 transition-colors"
             >
-              Finalizar Compra por WhatsApp
-            </button>
+              Finalizar Compra
+            </Link>
 
             <Link
               href="/search"

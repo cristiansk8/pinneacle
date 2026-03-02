@@ -42,11 +42,11 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 mb-4">
               <div className="text-3xl font-bold tracking-wider">
-                <span className="text-white">Rusovan</span>
+                <span className="text-white">Pinneacle Perfumería</span>
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Tu tienda online de confianza. Ropa deportiva, accesorios y artículos para el hogar y mascotas.
+              Tu tienda online de confianza. Perfumería, belleza y cuidado personal con los mejores productos y precios.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
@@ -110,14 +110,14 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <a href="tel:+573172727916" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  +57 317 272 7916
+                <a href="tel:+56946152921" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  +56 9 4615 2921
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <a href="mailto:soporte@rusovan.com" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  soporte@rusovan.com
+                <a href="mailto:contacto@pinneacleperfumeria.com" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  contacto@pinneacleperfumeria.com
                 </a>
               </div>
             </div>
@@ -130,11 +130,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Rusovan. Tienda Online.
+              © {new Date().getFullYear()} Pinneacle Perfumería. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6">
               <span className="text-gray-400 text-sm">
-                País/región: Colombia (COP $)
+                País/región: Chile (CLP $)
               </span>
             </div>
           </div>

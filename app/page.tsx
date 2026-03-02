@@ -21,9 +21,9 @@ import FooterCustom from '@/components/custom/FooterCustom';
 import { BannerCarousel } from '@/components/custom/BannerCarousel';
 
 export const metadata = {
-  title: 'Rusovan - Tienda Online de Ropa Deportiva, Accesorios y Artículos para el Hogar',
-  description: 'Descubre ropa deportiva, accesorios y artículos para el hogar y mascotas en Rusovan. Calidad premium y los mejores precios.',
-  keywords: 'ropa deportiva, accesorios, hogar, mascotas, tienda online, Rusovan',
+  title: 'Pinneacle Perfumería - Tu Tienda Online de Perfumería y Belleza',
+  description: 'Descubre los mejores productos de perfumería, belleza y cuidado personal en Pinneacle Perfumería. Calidad premium y los mejores precios.',
+  keywords: 'perfumería, belleza, cuidado personal, cosméticos, tienda online, Pinneacle Perfumería',
 };
 
 async function getFeaturedProducts() {
@@ -133,13 +133,13 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Rusovan
+              Pinneacle Perfumería
             </h1>
             <p className="text-xl sm:text-2xl mb-4 max-w-3xl mx-auto text-gray-200">
               Tu tienda online de confianza
             </p>
             <p className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto text-gray-300">
-              Ropa deportiva, accesorios y artículos para el hogar y mascotas
+              Perfumería, belleza y cuidado personal con los mejores productos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

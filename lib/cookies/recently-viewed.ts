@@ -12,7 +12,7 @@ export interface RecentlyViewedProduct {
   viewedAt: number; // timestamp
 }
 
-const COOKIE_NAME = 'rusovan_recently_viewed';
+const COOKIE_NAME = 'pinneacle_recently_viewed';
 const MAX_PRODUCTS = 12; // Máximo 12 productos
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 días en segundos
 

@@ -130,36 +130,6 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
 export default function CartPage() {
   const { cart, isLoading, updateQuantity, removeItem } = useCart();
 
-  // Función para generar mensaje de WhatsApp
-  const handleWhatsAppCheckout = () => {
-    if (!cart?.contents.nodes) return;
-
-    const phoneNumber = '56946152921'; // +56 9 4615 2919 sin el +
-
-    // Construir mensaje con productos
-    let message = '🛒 *Nuevo Pedido - Pinneacle Perfumería*\n\n';
-
-    cart.contents.nodes.forEach((item) => {
-      const productName = item.product.node.name;
-      const quantity = item.quantity;
-      const price = item.total || item.product.node.price;
-      const variation = item.variation ? `(${item.variation.node.name})` : '';
-
-      message += `• ${quantity}x ${productName} ${variation}\n`;
-      message += `  Precio: ${price}\n\n`;
-    });
-
-    message += `💰 *Total: ${cart.total}*\n\n`;
-    message += `Por favor confirmar mi pedido. ¡Gracias! 🙏`;
-
-    // Codificar mensaje para URL
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-    // Abrir WhatsApp en nueva pestaña
-    window.open(whatsappUrl, '_blank');
-  };
-
   if (isLoading) {
     return (
       <main className="min-h-screen bg-white pt-36">
@@ -255,12 +225,12 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button
-                  onClick={handleWhatsAppCheckout}
-                  className="w-full bg-green-700 text-white py-3 px-6 rounded-lg font-moderat font-medium hover:bg-green-800 transition-colors mb-3"
+                <Link
+                  href="/checkout"
+                  className="block w-full bg-green-700 text-white text-center py-3 px-6 rounded-lg font-moderat font-medium hover:bg-green-800 transition-colors mb-3"
                 >
-                  Finalizar Compra por WhatsApp
-                </button>
+                  Finalizar Compra
+                </Link>
 
                 <Link
                   href="/search"
