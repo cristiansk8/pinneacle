@@ -2,8 +2,8 @@ import React from 'react';
 import FooterCustom from '@/components/custom/FooterCustom';
 
 export const metadata = {
-  title: 'Política de Envíos | servigreen',
-  description: 'Conoce nuestra política de envíos, tiempos de entrega y cobertura en Colombia.'
+  title: 'Política de Envíos | Pinneacle Perfumería',
+  description: 'Conoce nuestra política de envíos, tiempos de entrega y cobertura en Chile.'
 };
 
 export default function PoliticaEnvios() {
@@ -21,7 +21,7 @@ export default function PoliticaEnvios() {
 
         <div className="text-gray-600">
           <p className="mb-6">
-            En servigreen nos comprometemos a entregar tus plantas y productos de manera segura y oportuna. Esta política describe nuestros tiempos de procesamiento, costos de envío y cobertura.
+            En Pinneacle Perfumería nos comprometemos a entregar tus productos de perfumería y belleza de manera segura y oportuna a todo Chile. Esta política describe nuestros tiempos de procesamiento, costos de envío y cobertura.
           </p>
 
           <section className="mb-8">
@@ -29,7 +29,7 @@ export default function PoliticaEnvios() {
               COBERTURA
             </h2>
             <p className="mb-4">
-              Actualmente realizamos envíos a todo el territorio nacional colombiano. No realizamos envíos internacionales en este momento.
+              Realizamos envíos a todo Chile, desde Arica a Punta Arenas, incluyendo isla de Pascua y territorio antártico chileno (con condiciones especiales). No realizamos envíos internacionales en este momento.
             </p>
           </section>
 
@@ -43,10 +43,10 @@ export default function PoliticaEnvios() {
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li><strong>Productos en stock:</strong> 1 a 2 días hábiles</li>
               <li><strong>Productos bajo pedido:</strong> 5 a 7 días hábiles</li>
-              <li><strong>Temporada alta (Black Friday, Navidad):</strong> 3 a 5 días hábiles</li>
+              <li><strong>Temporada alta (Cyber Day, Black Friday, Navidad):</strong> 3 a 5 días hábiles</li>
             </ul>
             <p className="mb-4">
-              El tiempo de procesamiento no incluye el tiempo de envío. Recibirás una notificación por correo electrónico cuando tu pedido sea despachado, junto con el número de seguimiento.
+              El tiempo de procesamiento no incluye el tiempo de envío. Recibirás una notificación por correo electrónico o WhatsApp cuando tu pedido sea despachado, junto con el número de seguimiento.
             </p>
           </section>
 
@@ -55,13 +55,13 @@ export default function PoliticaEnvios() {
               TIEMPOS DE ENTREGA
             </h2>
             <p className="mb-4">
-              Los tiempos de entrega varían según la ciudad de destino:
+              Los tiempos de entrega varían según la zona de destino:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li><strong>Bogotá:</strong> 2 a 4 días hábiles</li>
-              <li><strong>Ciudades principales</strong> (Medellín, Cali, Barranquilla, Cartagena): 3 a 5 días hábiles</li>
-              <li><strong>Otras ciudades y municipios:</strong> 5 a 8 días hábiles</li>
-              <li><strong>Zonas rurales:</strong> 8 a 12 días hábiles</li>
+              <li><strong>Región Metropolitana:</strong> 1 a 2 días hábiles</li>
+              <li><strong>Regiones principales</strong> (Valparaíso, Concepción, La Serena, etc.): 2 a 3 días hábiles</li>
+              <li><strong>Otras regiones:</strong> 3 a 5 días hábiles</li>
+              <li><strong>Zonas extremas y rurales:</strong> 5 a 7 días hábiles</li>
             </ul>
             <p className="mb-4">
               Los días hábiles son de lunes a viernes, excluyendo festivos nacionales y días no laborables.
@@ -76,27 +76,27 @@ export default function PoliticaEnvios() {
               Los costos de envío son calculados automáticamente al momento de finalizar tu compra, basándose en:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Ubicación de entrega (ciudad y departamento)</li>
+              <li>Región de entrega</li>
               <li>Peso y dimensiones del paquete</li>
               <li>Valor total del pedido</li>
             </ul>
             <p className="mb-4 bg-green-50 border-l-4 border-green-500 p-4">
-              <strong>Envío Gratis:</strong> Todos los pedidos superiores a $120 USD califican para envío gratuito a nivel nacional.
+              <strong>Envío Gratis:</strong> Todos los pedidos superiores a $39.990 califican para envío gratuito a nivel nacional.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              TRANSPORTADORA
+              TRANSPORTADORAS
             </h2>
             <p className="mb-4">
               Trabajamos con empresas de mensajería certificadas y confiables que garantizan la seguridad de tu envío. Dependiendo de la ubicación, utilizamos:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Servientrega</li>
-              <li>Coordinadora</li>
-              <li>TCC (Transportes Especiales)</li>
-              <li>Interrapidísimo</li>
+              <li>Chilexpress</li>
+              <li>Correos de Chile</li>
+              <li>Starken</li>
+              <li>Bluexpress</li>
             </ul>
           </section>
 
@@ -108,9 +108,9 @@ export default function PoliticaEnvios() {
               Una vez tu pedido sea despachado, recibirás:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Correo electrónico con número de guía de seguimiento</li>
+              <li>Correo electrónico o WhatsApp con número de guía de seguimiento</li>
               <li>Enlace directo para rastrear tu pedido en tiempo real</li>
-              <li>Notificaciones por WhatsApp sobre el estado de tu envío (opcional)</li>
+              <li>Notificaciones sobre el estado de tu envío</li>
             </ul>
             <p className="mb-4">
               Puedes rastrear tu envío ingresando el número de guía en el sitio web de la transportadora correspondiente.
@@ -125,13 +125,13 @@ export default function PoliticaEnvios() {
               Al recibir tu pedido:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Verifica que el paquete esté en buenas condiciones antes de firmar</li>
+              <li>Verifica que el paquete esté en buenas condiciones antes de firmar o recibir</li>
               <li>Si observas daños externos, repórtalo inmediatamente al mensajero</li>
               <li>Abre el paquete y verifica que el contenido coincida con tu pedido</li>
               <li>Si hay algún problema, contacta nuestro servicio al cliente dentro de las 24 horas siguientes</li>
             </ul>
             <p className="mb-4">
-              <strong>Importante:</strong> La firma de recepción indica conformidad con el estado del paquete. Reclamos posteriores sobre daños en el empaque externo no serán aceptados.
+              <strong>Importante:</strong> La recepción del paquete indica conformidad con su estado externo. Reclamos posteriores sobre daños en el empaque externo no serán aceptados.
             </p>
           </section>
 
@@ -140,15 +140,14 @@ export default function PoliticaEnvios() {
               INTENTOS DE ENTREGA
             </h2>
             <p className="mb-4">
-              La transportadora realizará hasta 3 intentos de entrega:
+              La transportadora realizará hasta 2 intentos de entrega:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li><strong>Primer intento:</strong> En la dirección registrada</li>
-              <li><strong>Segundo intento:</strong> Se dejará aviso de visita</li>
-              <li><strong>Tercer intento:</strong> Se contactará telefónicamente</li>
+              <li><strong>Segundo intento:</strong> Se dejará aviso de visita y se contactará telefónicamente</li>
             </ul>
             <p className="mb-4">
-              Si después de 3 intentos no es posible realizar la entrega, el paquete será devuelto a nuestras instalaciones. Los costos de reenvío correrán por cuenta del cliente.
+              Si después de los intentos no es posible realizar la entrega, el paquete será retenido en la oficina de la transportadora más cercana por un período de 7 días. Pasado este tiempo, será devuelto. Los costos de reenvío correrán por cuenta del cliente.
             </p>
           </section>
 
@@ -160,14 +159,14 @@ export default function PoliticaEnvios() {
               Es responsabilidad del cliente proporcionar una dirección completa y correcta que incluya:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Dirección completa (calle, número, apartamento, barrio)</li>
-              <li>Ciudad y departamento</li>
+              <li>Calle, número, departamento o casa</li>
+              <li>Comuna y región</li>
               <li>Puntos de referencia (si es necesario)</li>
               <li>Número de teléfono de contacto actualizado</li>
               <li>Nombre completo de quien recibirá el pedido</li>
             </ul>
             <p className="mb-4">
-              servigreen no se hace responsable por entregas fallidas debido a información incorrecta o incompleta proporcionada por el cliente.
+              Pinneacle Perfumería no se hace responsable por entregas fallidas debido a información incorrecta o incompleta proporcionada por el cliente.
             </p>
           </section>
 
@@ -179,7 +178,7 @@ export default function PoliticaEnvios() {
               Si necesitas cambiar la dirección de envío:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Contacta inmediatamente a servicio al cliente</li>
+              <li>Contacta inmediatamente a nuestro servicio al cliente por WhatsApp</li>
               <li>La modificación solo es posible antes del despacho</li>
               <li>Una vez despachado, debe coordinarse directamente con la transportadora</li>
               <li>Cambios de dirección con la transportadora pueden generar costos adicionales</li>
@@ -209,9 +208,9 @@ export default function PoliticaEnvios() {
               Los tiempos de entrega estimados pueden verse afectados por:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Condiciones climáticas adversas</li>
+              <li>Condiciones climáticas adversas (terremotos, nevadas, lluvias extremas)</li>
               <li>Festividades y temporadas altas</li>
-              <li>Situaciones de orden público</li>
+              <li>Paralizaciones o huelgas</li>
               <li>Problemas logísticos de la transportadora</li>
               <li>Restricciones o cierres por emergencias</li>
             </ul>
@@ -228,9 +227,9 @@ export default function PoliticaEnvios() {
               Para consultas sobre tu envío o problemas con la entrega:
             </p>
             <ul className="list-none mb-4 space-y-2">
-              <li><strong>WhatsApp:</strong> +57 317 272 7916</li>
-              <li><strong>Email:</strong> soporte@servigreen.com</li>
-              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+              <li><strong>WhatsApp:</strong> +56 9 4615 2919</li>
+              <li><strong>Email:</strong> contacto@pinneacleperfumeria.com</li>
+              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora chilena)</li>
             </ul>
           </section>
         </div>

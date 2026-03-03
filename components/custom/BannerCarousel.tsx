@@ -7,26 +7,20 @@ import Link from 'next/link';
 const banners = [
   {
     id: 1,
-    src: '/banner1.webp',
+    src: '/banner1.png',
     alt: 'Banner 1 - Pinneacle Perfumería',
     link: '/search'
   },
   {
     id: 2,
-    src: '/banner2.webp',
+    src: '/banner2.png',
     alt: 'Banner 2 - Pinneacle Perfumería',
     link: '/search'
   },
   {
     id: 3,
-    src: '/banner3.webp',
+    src: '/banner3.png',
     alt: 'Banner 3 - Pinneacle Perfumería',
-    link: '/search'
-  },
-  {
-    id: 4,
-    src: '/banner4.webp',
-    alt: 'Banner 4 - Pinneacle Perfumería',
     link: '/search'
   }
 ];

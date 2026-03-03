@@ -131,9 +131,26 @@ export function ProductDescriptionWoo({ product }: ProductDescriptionWooProps) {
 
     const productId = selectedVariation?.databaseId || product.databaseId || product.id;
 
+    // Preparar datos del producto para evitar fetching innecesario
+    // Nota: Pasamos datos mínimos ya que el carrito es local
+    const productData: any = {
+      title: product.name,
+      handle: product.slug,
+      priceRange: {
+        minVariantPrice: { amount: product.price || '0', currencyCode: 'CLP' },
+        maxVariantPrice: { amount: product.price || '0', currencyCode: 'CLP' }
+      },
+      featuredImage: product.image ? {
+        url: product.image.sourceUrl,
+        altText: (product.image as any).altText || product.name,
+        width: 0,
+        height: 0
+      } : undefined
+    };
+
     try {
       setIsAdding(true);
-      const success = await addToCart(productId, quantity);
+      const success = await addToCart(String(productId), quantity, productData);
 
       if (success) {
         // El carrito se abrirá automáticamente

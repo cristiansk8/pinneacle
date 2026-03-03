@@ -2,8 +2,8 @@ import React from 'react';
 import FooterCustom from '@/components/custom/FooterCustom';
 
 export const metadata = {
-  title: 'Política de Reembolso | servigreen',
-  description: 'Conoce nuestra política de reembolsos y devoluciones de servigreen.'
+  title: 'Política de Reembolso | Pinneacle Perfumería',
+  description: 'Conoce nuestra política de reembolsos y devoluciones de Pinneacle Perfumería en Chile.'
 };
 
 export default function PoliticaReembolso() {
@@ -21,7 +21,7 @@ export default function PoliticaReembolso() {
 
         <div className="text-gray-600">
           <p className="mb-6">
-            En servigreen nos esforzamos por garantizar tu satisfacción con cada compra. Esta política describe los términos y condiciones bajo los cuales puedes solicitar reembolsos por plantas y productos adquiridos en nuestra tienda online.
+            En Pinneacle Perfumería nos esforzamos por garantizar tu satisfacción con cada compra. Esta política describe los términos y condiciones bajo los cuales puedes solicitar reembolsos por productos de perfumería, belleza y cuidado personal adquiridos en nuestra tienda online en Chile.
           </p>
 
           <section className="mb-8">
@@ -29,10 +29,10 @@ export default function PoliticaReembolso() {
               DERECHO DE RETRACTO
             </h2>
             <p className="mb-4">
-              De acuerdo con la ley colombiana (Artículo 47 de la Ley 1480 de 2011), los consumidores tienen derecho a retractarse de su compra dentro de los cinco (5) días hábiles siguientes a la entrega del producto.
+              De acuerdo con la ley chilena (Ley 19.496 sobre Protección de los Derechos de los Consumidores), tienes derecho a retractarte de tu compra dentro de los diez (10) días hábiles siguientes a la recepción del producto, sin necesidad de justificar la causa.
             </p>
             <p className="mb-4">
-              Para ejercer este derecho, la planta o producto debe estar en buenas condiciones de salud, con el sustrato húmedo y sin evidencia de negligencia en su cuidado.
+              Para ejercer este derecho, el producto debe estar en su estado original, sin uso, con el empaque, sellos y etiquetas intactas. Los productos de perfumería y cosmética deben estar cerrados y sin señales de haber sido abiertos.
             </p>
           </section>
 
@@ -44,12 +44,12 @@ export default function PoliticaReembolso() {
               Para que un reembolso sea procesado, se deben cumplir las siguientes condiciones:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>La planta debe presentar signos de buena salud (hojas verdes, sin plagas visibles)</li>
-              <li>El sustrato debe estar húmedo o en condiciones adecuadas</li>
-              <li>Debe incluirse el empaque original y maceta si aplica</li>
-              <li>La solicitud debe realizarse dentro de los 5 días hábiles siguientes a la recepción</li>
-              <li>Se debe presentar comprobante de compra (factura o recibo)</li>
-              <li>Fotos del estado actual de la planta para evaluación</li>
+              <li>El producto debe estar en su estado original, sin uso y con empaques intactos</li>
+              <li>Los productos de perfume y cosmética deben estar cerrados y sin abrir</li>
+              <li>Debe incluirse el empaque original y accesorios si aplica</li>
+              <li>La solicitud debe realizarse dentro de los 10 días hábiles siguientes a la recepción</li>
+              <li>Se debe presentar comprobante de compra (boleta o factura)</li>
+              <li>Fotos del estado del producto para evaluación si corresponde</li>
             </ul>
           </section>
 
@@ -63,7 +63,7 @@ export default function PoliticaReembolso() {
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Los reembolsos se realizarán por el valor efectivamente pagado</li>
               <li>Los costos de envío no son reembolsables para productos en promoción</li>
-              <li>Las plantas en promoción tienen la misma garantía de calidad</li>
+              <li>Los productos en promoción tienen la misma garantía de calidad y autenticidad</li>
             </ul>
           </section>
 
@@ -75,14 +75,14 @@ export default function PoliticaReembolso() {
               Para iniciar un proceso de devolución, sigue estos pasos:
             </p>
             <ol className="list-decimal pl-6 mb-4 space-y-3">
-              <li>Contacta nuestro servicio al cliente a través de WhatsApp (+57 317 272 7916) o correo electrónico (soporte@servigreen.com)</li>
+              <li>Contacta nuestro servicio al cliente a través de WhatsApp (+56 9 4615 2919) o correo electrónico (contacto@pinneacleperfumeria.com)</li>
               <li>Proporciona tu número de pedido y la razón de la devolución</li>
-              <li>Envía fotos actuales de la planta para evaluación</li>
+              <li>Envía fotos del estado del producto y empaque original para evaluación</li>
               <li>Nuestro equipo te enviará las instrucciones para el proceso de devolución</li>
-              <li>Empaca la planta de forma segura en su empaque original</li>
+              <li>Empaca el producto de forma segura en su empaque original</li>
             </ol>
             <p className="mb-4">
-              Los costos de envío para la devolución del producto corren por cuenta del cliente, a menos que el producto presente defectos de fabricación o haya sido enviado por error.
+              Los costos de envío para la devución del producto corren por cuenta del cliente, a menos que el producto presente defectos de fabricación o haya sido enviado por error.
             </p>
           </section>
 
@@ -109,10 +109,10 @@ export default function PoliticaReembolso() {
               Si recibes un producto defectuoso, dañado o incorrecto:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Contacta inmediatamente a nuestro servicio al cliente con fotos de la planta</li>
-              <li>servigreen cubrirá los costos de envío de la devolución</li>
-              <li>Ofreceremos reemplazo de la planta o reembolso completo, según tu preferencia</li>
-              <li>El reembolso incluirá el costo de la planta y los gastos de envío originales</li>
+              <li>Contacta inmediatamente a nuestro servicio al cliente con fotos del producto y empaque</li>
+              <li>Pinneacle Perfumería cubrirá los costos de envío de la devolución</li>
+              <li>Ofreceremos reemplazo del producto o reembolso completo, según tu preferencia</li>
+              <li>El reembolso incluirá el costo del producto y los gastos de envío originales</li>
             </ul>
           </section>
 
@@ -124,11 +124,11 @@ export default function PoliticaReembolso() {
               No se aceptan devoluciones ni reembolsos en los siguientes casos:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Plantas que mostraron negligencia en su cuidado (falta de riego, sobrexposición al sol, etc.)</li>
-              <li>Plantas que hayan sido trasplantadas o alteradas</li>
-              <li>Plantas sin evidencia fotográfica del estado al recibirlas</li>
+              <li>Productos de perfumería y cosmética que hayan sido abiertos o usados</li>
+              <li>Productos sin el empaque original o sellos de seguridad rotos</li>
+              <li>Productos que hayan sido alterados o manipulados</li>
               <li>Productos adquiridos fuera de nuestra tienda oficial online</li>
-              <li>Solicitudes presentadas después de los 5 días hábiles establecidos</li>
+              <li>Solicitudes presentadas después de los 10 días hábiles establecidos</li>
             </ul>
           </section>
 
@@ -140,9 +140,9 @@ export default function PoliticaReembolso() {
               Para cualquier consulta sobre nuestra política de reembolsos o para iniciar un proceso de devolución, contáctanos:
             </p>
             <ul className="list-none mb-4 space-y-2">
-              <li><strong>WhatsApp:</strong> +57 317 272 7916</li>
-              <li><strong>Email:</strong> soporte@servigreen.com</li>
-              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+              <li><strong>WhatsApp:</strong> +56 9 4615 2919</li>
+              <li><strong>Email:</strong> contacto@pinneacleperfumeria.com</li>
+              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora chilena)</li>
             </ul>
           </section>
         </div>

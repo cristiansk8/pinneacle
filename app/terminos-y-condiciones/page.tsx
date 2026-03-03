@@ -3,8 +3,8 @@ import Link from 'next/link';
 import FooterCustom from '@/components/custom/FooterCustom';
 
 export const metadata = {
-  title: 'Términos y Condiciones | servigreen',
-  description: 'Lee los términos y condiciones de uso de la tienda online servigreen.'
+  title: 'Términos y Condiciones | Pinneacle Perfumería',
+  description: 'Lee los términos y condiciones de uso de la tienda online Pinneacle Perfumería.'
 };
 
 export default function TerminosYCondiciones() {
@@ -22,7 +22,7 @@ export default function TerminosYCondiciones() {
 
         <div className="text-gray-600">
           <p className="mb-6">
-            Bienvenido a servigreen. Al acceder y utilizar este sitio web y nuestros servicios, aceptas cumplir y estar sujeto a los siguientes términos y condiciones. Por favor, léelos detenidamente.
+            Bienvenido a Pinneacle Perfumería. Al acceder y utilizar este sitio web y nuestros servicios, aceptas cumplir y estar sujeto a los siguientes términos y condiciones. Por favor, léelos detenidamente.
           </p>
 
           <section className="mb-8">
@@ -30,7 +30,7 @@ export default function TerminosYCondiciones() {
               1. ACEPTACIÓN DE TÉRMINOS
             </h2>
             <p className="mb-4">
-              Al acceder a www.servigreen.com y realizar una compra, aceptas estar obligado por estos Términos y Condiciones, todas las leyes y regulaciones aplicables de Colombia, y aceptas que eres responsable del cumplimiento de cualquier ley local aplicable.
+              Al acceder a www.pinneacleperfumeria.com y realizar una compra, aceptas estar obligado por estos Términos y Condiciones, todas las leyes y regulaciones aplicables de Chile, y aceptas que eres responsable del cumplimiento de cualquier ley local aplicable.
             </p>
             <p className="mb-4">
               Si no estás de acuerdo con alguno de estos términos, te prohibimos usar o acceder a este sitio. Los materiales contenidos en este sitio web están protegidos por las leyes de derechos de autor y marcas registradas aplicables.
@@ -42,7 +42,7 @@ export default function TerminosYCondiciones() {
               2. USO DEL SITIO WEB
             </h2>
             <p className="mb-4">
-              Se te concede permiso para descargar temporalmente una copia de los materiales en el sitio web de servigreen solo para visualización transitoria personal y no comercial. Esto es el otorgamiento de una licencia, no una transferencia de título, y bajo esta licencia no puedes:
+              Se te concede permiso para descargar temporalmente una copia de los materiales en el sitio web de Pinneacle Perfumería solo para visualización transitoria personal y no comercial. Esto es el otorgamiento de una licencia, no una transferencia de título, y bajo esta licencia no puedes:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Modificar o copiar los materiales</li>
@@ -58,7 +58,7 @@ export default function TerminosYCondiciones() {
               3. REGISTRO DE CUENTA
             </h2>
             <p className="mb-4">
-              Para realizar compras en nuestro sitio, debes crear una cuenta proporcionando información veraz, actual y completa. Eres responsable de:
+              Para realizar compras en nuestro sitio, puedes crear una cuenta proporcionando información veraz, actual y completa. Eres responsable de:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Mantener la confidencialidad de tu contraseña</li>
@@ -75,10 +75,10 @@ export default function TerminosYCondiciones() {
               4. PRODUCTOS Y PRECIOS
             </h2>
             <p className="mb-4">
-              Todos los productos están sujetos a disponibilidad. Los precios de los productos están sujetos a cambio sin previo aviso.
+              Todos los productos de perfumería y belleza están sujetos a disponibilidad. Los precios de los productos están sujetos a cambio sin previo aviso.
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Los precios están expresados en pesos colombianos (COP)</li>
+              <li>Los precios están expresados en pesos chilenos (CLP)</li>
               <li>Los precios incluyen IVA cuando aplique</li>
               <li>Nos reservamos el derecho de limitar las cantidades de productos adquiridos por persona o pedido</li>
               <li>Las imágenes de productos son referenciales y pueden variar ligeramente del producto real</li>
@@ -96,18 +96,16 @@ export default function TerminosYCondiciones() {
             <ol className="list-decimal pl-6 mb-4 space-y-2">
               <li>Agregas productos al carrito de compras</li>
               <li>Proporcionas información de envío y facturación</li>
-              <li>Seleccionas método de pago</li>
-              <li>Confirmas el pedido</li>
-              <li>Recibes confirmación de compra por correo electrónico</li>
+              <li>Confirmas el pedido por WhatsApp</li>
+              <li>Recibes confirmación de compra y coordinas el pago</li>
             </ol>
             <p className="mb-4">
               Aceptamos los siguientes métodos de pago:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Tarjetas de crédito (Visa, Mastercard, American Express)</li>
-              <li>Tarjetas débito</li>
-              <li>PSE (Pagos Seguros en Línea)</li>
-              <li>Efectivo (en puntos autorizados a través de Mercado Pago)</li>
+              <li>Transferencia bancaria</li>
+              <li>Webpay</li>
+              <li>Mercado Pago</li>
             </ul>
           </section>
 
@@ -116,10 +114,10 @@ export default function TerminosYCondiciones() {
               6. ENVÍOS Y ENTREGAS
             </h2>
             <p className="mb-4">
-              Los envíos se realizan únicamente dentro del territorio colombiano. Los tiempos de entrega son estimados y comienzan a contarse desde la confirmación del pago y despacho del producto.
+              Los envíos se realizan a todo Chile. Los tiempos de entrega son estimados y comienzan a contarse desde la confirmación del pago y despacho del producto.
             </p>
             <p className="mb-4">
-              servigreen no se hace responsable por retrasos causados por la empresa de mensajería, condiciones climáticas, festivos, o situaciones de fuerza mayor.
+              Pinneacle Perfumería no se hace responsable por retrasos causados por la empresa de mensajería, condiciones climáticas, festivos, o situaciones de fuerza mayor.
             </p>
             <p className="mb-4">
               Para más información, consulta nuestra <Link href="/politica-envios" className="text-blue-600 hover:underline">Política de Envíos</Link>.
@@ -131,7 +129,7 @@ export default function TerminosYCondiciones() {
               7. DERECHO DE RETRACTO Y DEVOLUCIONES
             </h2>
             <p className="mb-4">
-              Conforme al Estatuto del Consumidor (Ley 1480 de 2011), tienes derecho a retractarte de tu compra dentro de los cinco (5) días hábiles siguientes a la recepción del producto.
+              Conforme a la Ley 19.496 sobre Protección de los Derechos de los Consumidores, tienes derecho a retractarte de tu compra dentro de los diez (10) días hábiles siguientes a la recepción del producto.
             </p>
             <p className="mb-4">
               Para ejercer este derecho y conocer las condiciones, consulta nuestra <Link href="/politica-reembolso" className="text-blue-600 hover:underline">Política de Reembolso</Link>.
@@ -143,22 +141,21 @@ export default function TerminosYCondiciones() {
               8. GARANTÍA
             </h2>
             <p className="mb-4">
-              Todos nuestros productos cuentan con garantía de calidad al recibo. La garantía cubre:
+              Todos nuestros productos de perfumería y belleza cuentan con garantía de calidad al recibo. La garantía cubre:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Plantas que lleguen con plagas visibles al momento de la recepción</li>
-              <li>Daños en el follaje durante el transporte</li>
-              <li>Problemas con macetas o recipientes (grietas, roturas)</li>
-              <li>Errores en la especie o variedad enviada</li>
+              <li>Productos que lleguen dañados o sellados rotos</li>
+              <li>Productos distintos a los solicitados</li>
+              <li>Problemas con el empaque (cañas rotas, daños visibles)</li>
+              <li>Productos vencidos o próximos a vencer</li>
             </ul>
             <p className="mb-4">
               La garantía NO cubre:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Daños por negligencia en el cuidado (falta de riego, exceso de sol, etc.)</li>
-              <li>Plantas que han sido trasplantadas o modificadas</li>
-              <li>Pérdida natural de hojas (senescencia)</li>
-              <li>Daños causados por plagas después de la recepción</li>
+              <li>Productos que hayan sido abiertos o usados</li>
+              <li>Reacciones alérgicas a los ingredientes (debe revisarse antes de usar)</li>
+              <li>Daños por mal uso o almacenamiento inadecuado</li>
             </ul>
           </section>
 
@@ -177,7 +174,7 @@ export default function TerminosYCondiciones() {
               <li>Marcas y nombres comerciales</li>
             </ul>
             <p className="mb-4">
-              Son propiedad exclusiva de servigreen y están protegidos por las leyes de propiedad intelectual de Colombia. Cualquier uso no autorizado constituirá una violación de estas leyes.
+              Son propiedad exclusiva de Pinneacle Perfumería y están protegidos por las leyes de propiedad intelectual de Chile. Cualquier uso no autorizado constituirá una violación de estas leyes.
             </p>
           </section>
 
@@ -186,7 +183,7 @@ export default function TerminosYCondiciones() {
               10. PRIVACIDAD Y PROTECCIÓN DE DATOS
             </h2>
             <p className="mb-4">
-              Tu privacidad es importante para nosotros. El uso de tu información personal está regido por nuestra <Link href="/politica-proteccion-datos" className="text-blue-600 hover:underline">Política de Protección de Datos</Link>, que cumple con la Ley 1581 de 2012.
+              Tu privacidad es importante para nosotros. El uso de tu información personal está regido por nuestra <Link href="/politica-proteccion-datos" className="text-blue-600 hover:underline">Política de Protección de Datos</Link>, que cumple con la Ley N° 19.628 sobre Protección de la Vida Privada.
             </p>
           </section>
 
@@ -195,7 +192,7 @@ export default function TerminosYCondiciones() {
               11. LIMITACIÓN DE RESPONSABILIDAD
             </h2>
             <p className="mb-4">
-              En ningún caso servigreen será responsable por:
+              En ningún caso Pinneacle Perfumería será responsable por:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Daños directos, indirectos, incidentales o consecuentes</li>
@@ -210,7 +207,7 @@ export default function TerminosYCondiciones() {
               12. ENLACES A TERCEROS
             </h2>
             <p className="mb-4">
-              Nuestro sitio puede contener enlaces a sitios web de terceros. servigreen no tiene control sobre estos sitios y no asume responsabilidad por su contenido, políticas de privacidad o prácticas.
+              Nuestro sitio puede contener enlaces a sitios web de terceros. Pinneacle Perfumería no tiene control sobre estos sitios y no asume responsabilidad por su contenido, políticas de privacidad o prácticas.
             </p>
           </section>
 
@@ -219,7 +216,7 @@ export default function TerminosYCondiciones() {
               13. MODIFICACIONES
             </h2>
             <p className="mb-4">
-              servigreen se reserva el derecho de:
+              Pinneacle Perfumería se reserva el derecho de:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Modificar estos Términos y Condiciones en cualquier momento</li>
@@ -236,7 +233,7 @@ export default function TerminosYCondiciones() {
               14. CANCELACIÓN DE PEDIDOS
             </h2>
             <p className="mb-4">
-              servigreen se reserva el derecho de rechazar o cancelar pedidos por las siguientes razones:
+              Pinneacle Perfumería se reserva el derecho de rechazar o cancelar pedidos por las siguientes razones:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Producto no disponible</li>
@@ -252,7 +249,7 @@ export default function TerminosYCondiciones() {
               15. JURISDICCIÓN Y LEY APLICABLE
             </h2>
             <p className="mb-4">
-              Estos Términos y Condiciones se rigen por las leyes de la República de Colombia. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Colombia.
+              Estos Términos y Condiciones se rigen por las leyes de la República de Chile. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Chile.
             </p>
           </section>
 
@@ -264,10 +261,10 @@ export default function TerminosYCondiciones() {
               Si tienes preguntas sobre estos Términos y Condiciones, puedes contactarnos:
             </p>
             <ul className="list-none mb-4 space-y-2">
-              <li><strong>Email:</strong> soporte@servigreen.com</li>
-              <li><strong>WhatsApp:</strong> +57 317 272 7916</li>
-              <li><strong>Sitio web:</strong> www.servigreen.com</li>
-              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+              <li><strong>Email:</strong> contacto@pinneacleperfumeria.com</li>
+              <li><strong>WhatsApp:</strong> +56 9 4615 2919</li>
+              <li><strong>Sitio web:</strong> www.pinneacleperfumeria.com</li>
+              <li><strong>Horario de atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM (Hora chilena)</li>
             </ul>
           </section>
 

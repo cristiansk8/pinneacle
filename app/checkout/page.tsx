@@ -47,63 +47,33 @@ export default function CheckoutPage() {
 
     setIsSubmitting(true);
 
-    const phoneNumber = '56946152921'; // +56 9 4615 2919 sin el +
+    const phoneNumber = '56946152919';
 
-    // Construir mensaje detallado
-    let message = '🛒 *NUEVO PEDIDO - Pinneacle Perfumería*\n';
-    message += '━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+    // Construir mensaje simplificado para evitar problemas con WhatsApp
+    let message = '*NUEVO PEDIDO - Pinneacle Perfumeria*%0A%0A';
+    message += '*DATOS DEL CLIENTE*%0A';
+    message += `Nombre: ${formData.nombre}%0A`;
+    message += `Email: ${formData.email}%0A`;
+    message += `Telefono: ${formData.telefono}%0A%0A`;
 
-    // Información del cliente
-    message += '👤 *DATOS DEL CLIENTE*\n';
-    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `📍 *Nombre:* ${formData.nombre}\n`;
-    message += `📧 *Email:* ${formData.email}\n`;
-    message += `📱 *Teléfono:* ${formData.telefono}\n\n`;
+    message += '*DIRECCION DE ENVIO*%0A';
+    message += `${formData.direccion}, ${formData.ciudad}%0A`;
+    message += `Region: ${formData.region}%0A%0A`;
 
-    // Dirección de envío
-    message += '🏠 *DIRECCIÓN DE ENVÍO*\n';
-    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `📫 *Dirección:* ${formData.direccion}\n`;
-    message += `🏙️ *Ciudad:* ${formData.ciudad}\n`;
-    if (formData.codigoPostal) {
-      message += `📮 *C.P.:* ${formData.codigoPostal}\n`;
-    }
-    message += `🗺️ *Región:* ${formData.region}\n\n`;
-
-    // Productos
-    message += '📦 *PRODUCTOS*\n';
-    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    message += '*PRODUCTOS*%0A';
     cart.contents.nodes.forEach((item, index) => {
-      const productName = item.product.node.name;
+      const productName = item.productName;
       const quantity = item.quantity;
-      const price = item.total || item.product.node.price;
-      const variation = item.variation ? `(${item.variation.node.name})` : '';
-
-      message += `${index + 1}. ${quantity}x ${productName} ${variation}\n`;
-      message += `   💰 ${price}\n`;
+      const price = item.priceDisplay;
+      message += `${quantity}x ${productName} - ${price}%0A`;
     });
 
-    // Totales
-    message += `\n💵 *RESUMEN DEL PAGO*\n`;
-    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `📊 *Subtotal:* ${cart.subtotal}\n`;
-    if (cart.shippingTotal && cart.shippingTotal !== '$0') {
-      message += `🚚 *Envío:* ${cart.shippingTotal}\n`;
-    }
-    if (cart.discountTotal && cart.discountTotal !== '$0') {
-      message += `🎉 *Descuento:* -${cart.discountTotal}\n`;
-    }
-    message += `✨ *TOTAL:* ${cart.total}\n\n`;
+    message += `%0A*TOTAL: ${cart.total}*%0A`;
+    message += `Pago: ${formData.metodoPago === 'transferencia' ? 'Transferencia' : 'Webpay'}%0A%0A`;
+    message += 'Por favor confirmar mi pedido. Gracias!';
 
-    // Método de pago
-    message += `💳 *Método de Pago:* ${formData.metodoPago === 'transferencia' ? 'Transferencia Bancaria' : 'Webpay'}\n\n`;
-
-    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `✅ *Por favor confirmar mi pedido. ¡Gracias!*`;
-
-    // Codificar y abrir WhatsApp
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    // Abrir WhatsApp directamente sin encoding adicional
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
     window.open(whatsappUrl, '_blank');
 
@@ -414,230 +384,3 @@ export default function CheckoutPage() {
   );
 }
 
-  if (!cart || itemCount === 0) {
-    return (
-      <main className="min-h-screen bg-white pt-36">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div className="min-h-[60vh] flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="font-belleza text-3xl font-light text-gray-900 mb-4">
-                Tu carrito está vacío
-              </h1>
-              <p className="text-gray-600 mb-8">
-                Agrega productos para finalizar tu compra
-              </p>
-              <Link
-                href="/search"
-                className="inline-flex items-center gap-2 bg-green-700 text-white px-8 py-3 rounded-lg hover:bg-green-800 transition-colors font-medium"
-              >
-                Explorar Productos
-              </Link>
-            </div>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  return (
-    <>
-      <main className="min-h-screen bg-gray-50 pt-36">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          {/* Header */}
-          <div className="mb-8">
-            <Link
-              href="/cart"
-              className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 mb-4 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Volver al carrito
-            </Link>
-            <h1 className="font-belleza text-3xl lg:text-4xl font-light tracking-wide text-gray-900">
-              Finalizar Compra
-            </h1>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Formulario de checkout */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Información de contacto */}
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="font-moderat text-lg font-semibold text-gray-900 mb-4">
-                  Información de Contacto
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                      placeholder="Tu nombre completo"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Teléfono *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                      placeholder="+56 9 1234 5678"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Dirección de envío */}
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="font-moderat text-lg font-semibold text-gray-900 mb-4">
-                  Dirección de Envío
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Dirección *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                      placeholder="Calle, número"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Ciudad *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                        placeholder="Ciudad"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Código Postal
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                        placeholder="0000000"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Región *
-                    </label>
-                    <select
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-700 focus:border-transparent"
-                    >
-                      <option value="">Selecciona una región</option>
-                      <option value="metropolitana">Región Metropolitana</option>
-                      <option value="valparaiso">Región de Valparaíso</option>
-                      <option value="biobio">Región del Biobío</option>
-                      <option value="otra">Otra región</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Método de pago */}
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="font-moderat text-lg font-semibold text-gray-900 mb-4">
-                  Método de Pago
-                </h2>
-                <div className="space-y-3">
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-green-700 transition-colors">
-                    <input
-                      type="radio"
-                      name="payment"
-                      className="h-4 w-4 text-green-700 focus:ring-green-700"
-                      defaultChecked
-                    />
-                    <span className="ml-3 font-medium text-gray-900">Transferencia bancaria</span>
-                  </label>
-                  <label className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-green-700 transition-colors">
-                    <input
-                      type="radio"
-                      name="payment"
-                      className="h-4 w-4 text-green-700 focus:ring-green-700"
-                    />
-                    <span className="ml-3 font-medium text-gray-900">Webpay</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            {/* Resumen del pedido */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-sm p-6 sticky top-32">
-                <h2 className="font-moderat text-lg font-semibold text-gray-900 mb-4">Resumen del Pedido</h2>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Subtotal</span>
-                    <span className="font-medium text-gray-900">{cart.subtotal}</span>
-                  </div>
-
-                  {cart.shippingTotal && cart.shippingTotal !== '$0' && (
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Envío</span>
-                      <span className="font-medium text-gray-900">{cart.shippingTotal}</span>
-                    </div>
-                  )}
-
-                  {cart.discountTotal && cart.discountTotal !== '$0' && (
-                    <div className="flex justify-between text-sm text-green-700">
-                      <span>Descuento</span>
-                      <span className="font-medium">-{cart.discountTotal}</span>
-                    </div>
-                  )}
-
-                  <div className="flex justify-between text-lg font-bold pt-3 border-t border-gray-200">
-                    <span>Total</span>
-                    <span className="text-green-700">{cart.total}</span>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  className="w-full bg-green-700 text-white py-3 px-6 rounded-lg font-moderat font-medium hover:bg-green-800 transition-colors mb-3"
-                >
-                  Realizar Pedido
-                </button>
-
-                {/* Envío gratis */}
-                {cart.subtotal && (
-                  <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                    <p className="text-sm text-green-800">
-                      💚 Envío gratis en pedidos superiores a $80.000 CLP
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </>
-  );
-}

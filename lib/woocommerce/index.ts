@@ -59,13 +59,14 @@ export async function woocommerceFetch<T>({
 }): Promise<{ status: number; body: T } | never> {
   try {
     // Usar endpoint directo en servidor, proxy en cliente
+    // El proxy es necesario para manejar cookies de sesión en el cliente
     const isServer = typeof window === 'undefined';
     const endpoint = isServer ? directEndpoint : GRAPHQL_ENDPOINT;
 
-    console.log(`🔵 Fetching WooCommerce (${isServer ? 'Server' : 'Client'}): ${endpoint}`);
-    console.log('🔵 Variables:', variables);
+    console.log(`🔵 Fetching WooCommerce (${isServer ? 'Server' : 'Client'}): ${isServer ? directEndpoint : GRAPHQL_ENDPOINT}`);
+    if (variables) console.log('🔵 Variables:', variables);
 
-    const result = await fetch(endpoint, {
+    const fetchOptions: RequestInit = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,7 +76,14 @@ export async function woocommerceFetch<T>({
         ...(query && { query }),
         ...(variables && { variables })
       })
-    });
+    };
+
+    // Solo agregar credentials en cliente para incluir cookies
+    if (!isServer) {
+      fetchOptions.credentials = 'include';
+    }
+
+    const result = await fetch(endpoint, fetchOptions);
 
     const body = await result.json();
 

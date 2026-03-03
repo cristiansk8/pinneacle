@@ -4,7 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Minus, Plus, Trash2 } from 'lucide-react';
 import { useCart } from '@/components/providers/CartProvider';
-import { CartItem } from '@/lib/woocommerce/cart';
+
+interface LocalCartItem {
+  key: string;
+  productId: string;
+  productName: string;
+  productSlug: string;
+  variationName?: string;
+  price: number;
+  priceDisplay: string;
+  quantity: number;
+  image?: {
+    sourceUrl?: string;
+    altText?: string;
+  };
+}
 
 /**
  * PÁGINA DEL CARRITO - WooCommerce
@@ -36,19 +50,18 @@ function EmptyCartMessage() {
 }
 
 function CartItemCard({ item, onUpdateQuantity, onRemove }: {
-  item: CartItem;
+  item: LocalCartItem;
   onUpdateQuantity: (key: string, quantity: number) => void;
   onRemove: (key: string) => void;
 }) {
-  // Usar imagen de la variación si existe, sino la del producto
-  const imageUrl = item.variation?.node.image?.sourceUrl || item.product.node.image?.sourceUrl;
-  const imageAlt = item.product.node.image?.altText || item.variation?.node.image?.altText || item.product.node.name;
+  const imageUrl = item.image?.sourceUrl;
+  const imageAlt = item.image?.altText || item.productName;
 
   return (
     <div className="flex gap-4 p-4 bg-white border border-gray-200 rounded-lg hover:shadow-sm transition-shadow">
       {/* Imagen */}
       <Link
-        href={`/product/${item.product.node.slug}`}
+        href={`/product/${item.productSlug}`}
         className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100"
       >
         {imageUrl ? (
@@ -71,20 +84,20 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
         <div className="flex justify-between gap-4">
           <div className="flex-1">
             <Link
-              href={`/product/${item.product.node.slug}`}
+              href={`/product/${item.productSlug}`}
               className="font-moderat font-medium text-gray-900 hover:text-green-700 line-clamp-2 mb-1"
             >
-              {item.product.node.name}
+              {item.productName}
             </Link>
 
-            {item.variation && (
+            {item.variationName && (
               <p className="text-sm text-gray-500 mt-1">
-                {item.variation.node.name}
+                {item.variationName}
               </p>
             )}
 
             <p className="text-lg font-semibold text-gray-900 mt-2">
-              {item.total}
+              {item.priceDisplay}
             </p>
           </div>
 
@@ -119,7 +132,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
             </button>
           </div>
           <span className="text-sm text-gray-500">
-            Subtotal: {item.subtotal}
+            Subtotal: {item.priceDisplay}
           </span>
         </div>
       </div>

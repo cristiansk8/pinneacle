@@ -142,22 +142,48 @@ export async function updateCartItem(
   quantity: number
 ): Promise<{ success: boolean; cart?: Cart; error?: string }> {
   try {
+    console.log('🔄 Actualizando item:', { key, quantity });
+
     const res = await woocommerceFetch<any>({
       query: `
-        mutation updateCartItem($key: ID!, $quantity: Int) {
-          updateItemQuantity(input: { key: $key, quantity: $quantity }) {
-            clientMutationId
+        mutation updateCartItem($key: ID!, $quantity: Int!) {
+          updateItemQuantities(input: { items: [{ key: $key, quantity: $quantity }] }) {
+            cart {
+              contents {
+                nodes {
+                  key
+                  quantity
+                  product {
+                    node {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+              subtotal
+              total
+              shippingTotal
+              discountTotal
+            }
           }
         }
       `,
       variables: { key, quantity }
     });
 
-    // Refrescar el carrito completo
-    const cart = await getCart();
-    return { success: true, cart: cart || undefined };
+    console.log('✅ Mutación ejecutada correctamente');
+
+    // Usar el carrito de la respuesta
+    const updatedCart = res.body.data.updateItemQuantities?.cart;
+    if (updatedCart) {
+      console.log('🛒 Carrito actualizado:', updatedCart.contents.nodes.length, 'items');
+      return { success: true, cart: updatedCart };
+    }
+
+    return { success: false, error: 'No se pudo actualizar el carrito' };
   } catch (error: any) {
-    console.error('Error updating cart item:', error);
+    console.error('❌ Error updating cart item:', error);
     return { success: false, error: error.message || 'Error al actualizar el carrito' };
   }
 }
@@ -169,6 +195,8 @@ export async function removeCartItem(
   key: string
 ): Promise<{ success: boolean; cart?: Cart; error?: string }> {
   try {
+    console.log('🗑️ Eliminando item:', key);
+
     const res = await woocommerceFetch<any>({
       query: `
         mutation removeItem($key: ID!) {
@@ -177,8 +205,19 @@ export async function removeCartItem(
               contents {
                 nodes {
                   key
+                  quantity
+                  product {
+                    node {
+                      id
+                      name
+                    }
+                  }
                 }
               }
+              subtotal
+              total
+              shippingTotal
+              discountTotal
             }
           }
         }
@@ -186,11 +225,18 @@ export async function removeCartItem(
       variables: { key }
     });
 
-    // Refrescar el carrito completo
-    const cart = await getCart();
-    return { success: true, cart: cart || undefined };
+    console.log('✅ Item eliminado correctamente');
+
+    // Usar el carrito de la respuesta
+    const updatedCart = res.body.data.removeItemsFromCart?.cart;
+    if (updatedCart) {
+      console.log('🛒 Carrito actualizado:', updatedCart.contents.nodes.length, 'items');
+      return { success: true, cart: updatedCart };
+    }
+
+    return { success: false, error: 'No se pudo eliminar del carrito' };
   } catch (error: any) {
-    console.error('Error removing cart item:', error);
+    console.error('❌ Error removing cart item:', error);
     return { success: false, error: error.message || 'Error al eliminar del carrito' };
   }
 }

@@ -71,15 +71,14 @@ export function CartDrawer() {
           ) : (
             <div className="space-y-6">
               {cart?.contents.nodes.map((item) => {
-                // Usar imagen de la variación si existe, sino la del producto
-                const imageUrl = item.variation?.node.image?.sourceUrl || item.product.node.image?.sourceUrl;
-                const imageAlt = item.product.node.image?.altText || item.variation?.node.image?.altText || item.product.node.name;
+                const imageUrl = item.image?.sourceUrl;
+                const imageAlt = item.image?.altText || item.productName;
 
                 return (
                   <div key={item.key} className="flex gap-4 pb-6 border-b border-gray-100">
                     {/* Imagen */}
                     <Link
-                      href={`/product/${item.product.node.slug}`}
+                      href={`/product/${item.productSlug}`}
                       onClick={closeCart}
                       className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100"
                     >
@@ -101,21 +100,21 @@ export function CartDrawer() {
                   {/* Info */}
                   <div className="flex-1 min-w-0">
                     <Link
-                      href={`/product/${item.product.node.slug}`}
+                      href={`/product/${item.productSlug}`}
                       onClick={closeCart}
                       className="font-moderat text-sm font-medium text-gray-900 hover:text-green-700 line-clamp-2"
                     >
-                      {item.product.node.name}
+                      {item.productName}
                     </Link>
 
-                    {item.variation && (
+                    {item.variationName && (
                       <p className="text-xs text-gray-500 mt-1">
-                        {item.variation.node.name}
+                        {item.variationName}
                       </p>
                     )}
 
                     <p className="text-sm font-semibold text-gray-900 mt-2">
-                      {item.total}
+                      {item.priceDisplay}
                     </p>
 
                     {/* Quantity Controls */}
@@ -182,11 +181,11 @@ export function CartDrawer() {
             </div>
 
             <Link
-              href="/checkout"
+              href="/cart"
               onClick={closeCart}
               className="block w-full bg-green-700 text-white text-center py-3 px-6 rounded-lg font-moderat font-medium hover:bg-green-800 transition-colors"
             >
-              Finalizar Compra
+              Ver Carrito
             </Link>
 
             <Link

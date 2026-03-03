@@ -63,9 +63,9 @@ mutation addToCart($productId: Int!, $quantity: Int) {
 `;
 
 export const updateCartItemMutation = `
-# Actualizar items del carrito
+# Actualizar items del carrito (CORREGIDO: updateItemQuantities)
 mutation updateCartItems($items: [CartItemInput!]!) {
-  updateCartItems(input: {
+  updateItemQuantities(input: {
     items: $items
   }) {
     cart {
