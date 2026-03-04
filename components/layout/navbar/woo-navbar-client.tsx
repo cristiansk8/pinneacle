@@ -97,16 +97,6 @@ function WooSearch() {
     }
   };
 
-  const formatPrice = (price: string) => {
-    const num = parseFloat(price);
-    return new Intl.NumberFormat('es-CL', {
-      style: 'currency',
-      currency: 'CLP',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(num);
-  };
-
   return (
     <div ref={searchRef} className="relative w-full">
       <form onSubmit={handleSubmit} className="relative w-full">
@@ -143,7 +133,7 @@ function WooSearch() {
           {results.map((product) => (
             <Link
               key={product.id}
-              href={`/products/${product.handle}`}
+              href={`/product/${product.handle}`}
               onClick={() => {
                 setShowResults(false);
                 setSearchQuery('');
@@ -162,7 +152,7 @@ function WooSearch() {
                   {product.title}
                 </p>
                 <p className="text-sm text-gray-600">
-                  {formatPrice(product.price)}
+                  {product.priceDisplay}
                 </p>
               </div>
             </Link>

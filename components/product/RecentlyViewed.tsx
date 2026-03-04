@@ -8,12 +8,14 @@ interface RecentlyViewedProductsProps {
   currentProductId?: string;
   title?: string;
   maxProducts?: number;
+  fallbackProducts?: any[];
 }
 
 export function RecentlyViewedProducts({
   currentProductId,
   title = 'Vistos Recientemente',
-  maxProducts = 6
+  maxProducts = 8,
+  fallbackProducts = []
 }: RecentlyViewedProductsProps) {
   const { recentlyViewed } = useRecentlyViewed();
 
@@ -22,8 +24,10 @@ export function RecentlyViewedProducts({
     ? recentlyViewed.filter(p => p.id !== currentProductId)
     : recentlyViewed;
 
-  // Limitar número de productos
-  const productsToShow = displayProducts.slice(0, maxProducts);
+  // Usar productos vistos o fallback
+  const productsToShow = displayProducts.length > 0
+    ? displayProducts.slice(0, maxProducts)
+    : fallbackProducts.slice(0, maxProducts);
 
   if (productsToShow.length === 0) {
     return null;
@@ -46,36 +50,41 @@ export function RecentlyViewedProducts({
           )}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {productsToShow.map((product) => (
             <Link
               key={product.id}
               href={`/product/${product.slug}`}
-              className="group"
+              className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
-              <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 mb-3">
+              {/* Imagen - misma relación que el catálogo */}
+              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
                 {product.image ? (
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                  <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
                     Sin imagen
                   </div>
                 )}
               </div>
-              <h3 className="font-moderat text-sm font-medium text-gray-900 group-hover:text-green-700 transition-colors line-clamp-2">
-                {product.name}
-              </h3>
-              {product.price && (
-                <p className="text-sm text-gray-600 mt-1">
-                  {product.price}
-                </p>
-              )}
+
+              {/* Info - mismo estilo que el catálogo */}
+              <div className="p-4">
+                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-green-700 transition-colors">
+                  {product.name}
+                </h3>
+                {product.price && (
+                  <p className="text-lg text-gray-700 font-medium">
+                    {product.price}
+                  </p>
+                )}
+              </div>
             </Link>
           ))}
         </div>

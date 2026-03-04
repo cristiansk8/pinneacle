@@ -57,7 +57,7 @@ async function getFeaturedProducts() {
     }
 
     // Adaptar a formato simple
-    const adapted = products.slice(0, 6).map((product: any) => {
+    const adapted = products.slice(0, 8).map((product: any) => {
       const adaptedProduct = {
         id: product.id,
         name: product.name,
@@ -128,39 +128,6 @@ export default async function HomePage() {
         <BannerCarousel />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Pinneacle Perfumería
-            </h1>
-            <p className="text-xl sm:text-2xl mb-4 max-w-3xl mx-auto text-gray-200">
-              Tu tienda online de confianza
-            </p>
-            <p className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto text-gray-300">
-              Perfumería, belleza y cuidado personal con los mejores productos
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/search"
-                className="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
-              >
-                Ver Productos
-              </Link>
-              {categories.length > 0 && categories[0] && (
-                <Link
-                  href={categories[0].path}
-                  className="inline-flex items-center justify-center bg-transparent border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-900 transition-colors"
-                >
-                  Ver Categorías
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Categorías */}
       {categories.length > 0 && (
         <section className="py-16 bg-white">
@@ -213,7 +180,7 @@ export default async function HomePage() {
                 Ver todos →
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {products.map((product: any) => (
                 <ProductCard key={product.id} product={product} />
               ))}

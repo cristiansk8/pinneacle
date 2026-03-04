@@ -57,13 +57,13 @@ function AccordionItem({ title, icon, content, isOpen, onClick }: AccordionItemP
     <div className="border-b border-gray-200">
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:text-green-700 group"
+        className="w-full flex items-center justify-between py-4 text-left transition-colors hover:text-[#101828] group"
       >
         <div className="flex items-center gap-3">
-          <div className="text-gray-500 group-hover:text-green-700 transition-colors">
+          <div className="text-gray-500 group-hover:text-[#101828] transition-colors">
             {icon}
           </div>
-          <span className="font-moderat text-sm uppercase tracking-wider font-medium text-gray-900 group-hover:text-green-700 transition-colors">
+          <span className="font-moderat text-sm uppercase tracking-wider font-medium text-gray-900 group-hover:text-[#101828] transition-colors">
             {title}
           </span>
         </div>
@@ -197,8 +197,8 @@ export function ProductDescriptionWoo({ product }: ProductDescriptionWooProps) {
         {/* Stock Status */}
         <div className="flex items-center gap-2">
           {currentStockStatus === 'IN_STOCK' ? (
-            <span className="inline-flex items-center gap-1 text-sm text-green-700">
-              <span className="w-2 h-2 rounded-full bg-green-700"></span>
+            <span className="inline-flex items-center gap-1 text-sm text-[#101828]">
+              <span className="w-2 h-2 rounded-full bg-[#101828]"></span>
               En stock
               {stockQuantity && stockQuantity > 0 && stockQuantity <= 10 && (
                 <span className="text-xs text-gray-500">
@@ -364,10 +364,10 @@ export function ProductDescriptionWoo({ product }: ProductDescriptionWooProps) {
         <button
           onClick={handleAddToCart}
           disabled={currentStockStatus === 'OUT_OF_STOCK' || isAdding}
-          className={`w-full py-4 px-8 rounded-lg font-moderat text-lg tracking-wide uppercase transition-all duration-300 ${
+          className={`w-full py-4 px-8 rounded-lg font-moderat text-lg tracking-wide uppercase transition-all duration-300 border-2 ${
             currentStockStatus === 'OUT_OF_STOCK' || isAdding
-              ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-              : 'bg-green-700 text-white hover:bg-green-800 shadow-md hover:shadow-lg'
+              ? 'bg-gray-400 text-gray-200 border-gray-400 cursor-not-allowed'
+              : 'bg-[#101828] text-white border-[#101828] hover:bg-white hover:text-[#101828] shadow-md hover:shadow-xl'
           }`}
         >
           {isAdding ? 'Agregando...' : currentStockStatus === 'OUT_OF_STOCK' ? 'Agotado' : 'Agregar al Carrito'}

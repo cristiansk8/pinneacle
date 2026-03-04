@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   keywords: ['perfumería', 'belleza', 'cosméticos', 'fragancias', 'tienda online', 'Pinneacle Perfumería'],
   authors: [{ name: 'Pinneacle Perfumería' }],
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     type: 'website',

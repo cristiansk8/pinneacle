@@ -18,7 +18,7 @@ export function CategoryDropdown({ categories }: CategoryDropdownProps) {
 
   return (
     <div
-      className="relative"
+      className="relative group"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -37,7 +37,7 @@ export function CategoryDropdown({ categories }: CategoryDropdownProps) {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute left-0 top-full mt-1 w-56 rounded-md bg-white py-2 shadow-lg border border-gray-200 z-50">
+        <div className="absolute left-0 top-full w-56 rounded-md bg-white py-2 shadow-lg border border-gray-200 z-50">
           <div className="py-1">
             <Link
               href="/search"

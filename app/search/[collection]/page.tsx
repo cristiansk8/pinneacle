@@ -77,7 +77,7 @@ export default async function CategoryPage(props: {
   }));
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-36">
+    <main className="min-h-screen bg-gray-50 pt-4">
       {/* Breadcrumb simple */}
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
