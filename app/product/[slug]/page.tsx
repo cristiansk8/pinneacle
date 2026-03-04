@@ -3,6 +3,7 @@ import { WooNavbar } from '@/components/layout/navbar/woo-navbar';
 import FooterCustom from '@/components/custom/FooterCustom';
 import { ProductDescriptionWoo } from '@/components/product/ProductDescriptionWoo';
 import { ProductViewTracker } from '@/components/product/ProductViewTracker';
+import { generateProductSchema, generateBreadcrumbSchema, JsonLdScript } from '@/lib/structured-data';
 
 /**
  * PÁGINA INDIVIDUAL DE PRODUCTO - WooCommerce
@@ -95,10 +96,34 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const shortDescription = product.shortDescription ? stripHtml(product.shortDescription) : '';
   const description = product.description ? stripHtml(product.description) : '';
 
+  // Generar JSON-LD para SEO
+  const productSchema = generateProductSchema({
+    name: product.name,
+    description: shortDescription || description,
+    image: image,
+    price: price.replace(/[^0-9]/g, ''), // Remover símbolos para schema
+    priceCurrency: 'CLP',
+    availability: product.stockStatus === 'IN_STOCK'
+      ? 'https://schema.org/InStock'
+      : product.stockStatus === 'OUT_OF_STOCK'
+      ? 'https://schema.org/OutOfStock'
+      : 'https://schema.org/PreOrder',
+    url: `https://pinneacleperfumeria.com/product/${product.slug}`,
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Inicio', url: 'https://pinneacleperfumeria.com/' },
+    { name: product.name, url: `https://pinneacleperfumeria.com/product/${product.slug}` },
+  ]);
+
   return (
     <>
+      {/* Structured Data para SEO */}
+      <JsonLdScript data={productSchema} />
+      <JsonLdScript data={breadcrumbSchema} />
+
       <WooNavbar />
-      <main className="min-h-screen bg-white pt-36">
+      <main id="main-content" className="min-h-screen bg-white pt-36" tabIndex={-1}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm">

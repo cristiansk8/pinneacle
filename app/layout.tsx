@@ -3,6 +3,7 @@ import './globals.css';
 import { RecentlyViewedProvider } from '@/components/providers/RecentlyViewedProvider';
 import { CartProvider } from '@/components/providers/CartProvider';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { generateOrganizationSchema, generateWebSiteSchema, JsonLdScript } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: {
@@ -31,9 +32,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = generateOrganizationSchema();
+  const webSiteSchema = generateWebSiteSchema();
+
   return (
     <html lang="es">
+      <head>
+        {/* Structured Data global para SEO */}
+        <JsonLdScript data={organizationSchema} />
+        <JsonLdScript data={webSiteSchema} />
+      </head>
       <body className="antialiased">
+        {/* Skip Link para accesibilidad - permite saltar al contenido principal */}
+        <a
+          href="#main-content"
+          className="skip-link"
+        >
+          Saltar al contenido principal
+        </a>
+
         <CartProvider>
           <RecentlyViewedProvider>
             {children}

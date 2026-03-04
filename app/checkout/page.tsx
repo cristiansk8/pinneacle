@@ -47,7 +47,7 @@ export default function CheckoutPage() {
 
     setIsSubmitting(true);
 
-    const phoneNumber = '56946152919';
+    const phoneNumber = '56928106353';
 
     // Construir mensaje simplificado para evitar problemas con WhatsApp
     let message = '*NUEVO PEDIDO - Pinneacle Perfumeria*%0A%0A';
