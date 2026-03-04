@@ -122,7 +122,7 @@ export default async function HomePage() {
   return (
     <>
       <WooNavbar />
-      <main className="min-h-screen bg-gray-50">
+      <main id="main-content" className="min-h-screen bg-gray-50" tabIndex={-1}>
       {/* Banner Carousel */}
       <div className="pt-20">
         <BannerCarousel />

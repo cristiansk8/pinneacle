@@ -1,91 +1,252 @@
-# servigreen - Tienda E-commerce Integrada
+# Pinneacle Perfumería - Tienda E-commerce
 
-Tienda de e-commerce personalizada que combina la belleza de las plantas y jardinería con la funcionalidad completa de Shopify.
+Tienda de e-commerce de perfumería construida con Next.js 15 y WooCommerce.
+
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8)
 
 ## 🎯 Características
 
 ### ✅ Diseño Personalizado
-- **Marca servigreen**: Paleta de colores verdes, tipografías y estética natural
-- **Componentes personalizados**: Hero, categorías, productos destacados, newsletter
-- **Fuentes exclusivas**: Belleza (serif) y Moderat (sans-serif)
-- **Responsive**: Diseño adaptable a todos los dispositivos
+- **Marca Pinneacle**: Colores corporativos (#101828), tipografías exclusivas
+- **Layout responsive**: Diseño adaptable a todos los dispositivos
+- **Grid de 4 columnas**: Presentación optimizada de productos
+- **Componentes personalizados**: Hero, banners, categorías, productos destacados
 
-### ✅ Integración Shopify
-- **Productos dinámicos**: Catálogo completo desde Shopify
-- **Carrito funcional**: Sistema de carrito y checkout completo
-- **Colecciones**: Organización por categorías
-- **Gestión en tiempo real**: Productos y precios actualizados automáticamente
+### ✅ Integración WooCommerce
+- **Productos dinámicos**: Catálogo completo desde WooCommerce via GraphQL
+- **Carrito local**: Sistema de carrito con persistencia en localStorage
+- **Búsqueda AJAX**: Búsqueda en tiempo real con debouncing
+- **Productos variables**: Soporte para variaciones (tamaño, fragrance, etc.)
+- **Precios CLP**: Formato chileno con separadores de miles
 
-### ✅ Páginas Personalizadas
-- **Home**: Diseño completo con todos los componentes personalizados
-- **Productos**: Páginas de producto con galería y detalles
-- **Colecciones**: Páginas de categorías con filtros
-- **Búsqueda**: Sistema de búsqueda integrado
+### ✅ Funcionalidades
+- **Checkout WhatsApp**: Proceso de compra vía WhatsApp
+- **Productos vistos**: Tracking de productos visitados
+- **Stock en tiempo real**: Indicadores de disponibilidad
+- **Páginas informativas**: Políticas, términos, envíos (Chile)
 
-<h3 id="v1-note"></h3>
+## 🚀 Quick Start
 
-> Note: Looking for Next.js Commerce v1? View the [code](https://github.com/vercel/commerce/tree/v1), [demo](https://commerce-v1.vercel.store), and [release notes](https://github.com/vercel/commerce/releases/tag/v1).
+### Requisitos Previos
 
-## Providers
+- Node.js 18+
+- pnpm (recomendado) o npm
+- Cuenta de WooCommerce con GraphQL API habilitada
 
-Vercel will only be actively maintaining a Shopify version [as outlined in our vision and strategy for Next.js Commerce](https://github.com/vercel/commerce/pull/966).
-
-Vercel is happy to partner and work with any commerce provider to help them get a similar template up and running and listed below. Alternative providers should be able to fork this repository and swap out the `lib/shopify` file with their own implementation while leaving the rest of the template mostly unchanged.
-
-- Shopify (this repository)
-- [BigCommerce](https://github.com/bigcommerce/nextjs-commerce) ([Demo](https://next-commerce-v2.vercel.app/))
-- [Ecwid by Lightspeed](https://github.com/Ecwid/ecwid-nextjs-commerce/) ([Demo](https://ecwid-nextjs-commerce.vercel.app/))
-- [Geins](https://github.com/geins-io/vercel-nextjs-commerce) ([Demo](https://geins-nextjs-commerce-starter.vercel.app/))
-- [Medusa](https://github.com/medusajs/vercel-commerce) ([Demo](https://medusa-nextjs-commerce.vercel.app/))
-- [Prodigy Commerce](https://github.com/prodigycommerce/nextjs-commerce) ([Demo](https://prodigy-nextjs-commerce.vercel.app/))
-- [Saleor](https://github.com/saleor/nextjs-commerce) ([Demo](https://saleor-commerce.vercel.app/))
-- [Shopware](https://github.com/shopwareLabs/vercel-commerce) ([Demo](https://shopware-vercel-commerce-react.vercel.app/))
-- [Swell](https://github.com/swellstores/verswell-commerce) ([Demo](https://verswell-commerce.vercel.app/))
-- [Umbraco](https://github.com/umbraco/Umbraco.VercelCommerce.Demo) ([Demo](https://vercel-commerce-demo.umbraco.com/))
-- [Wix](https://github.com/wix/headless-templates/tree/main/nextjs/commerce) ([Demo](https://wix-nextjs-commerce.vercel.app/))
-- [Fourthwall](https://github.com/FourthwallHQ/vercel-commerce) ([Demo](https://vercel-storefront.fourthwall.app/))
-
-> Note: Providers, if you are looking to use similar products for your demo, you can [download these assets](https://drive.google.com/file/d/1q_bKerjrwZgHwCw0ovfUMW6He9VtepO_/view?usp=sharing).
-
-## Integrations
-
-Integrations enable upgraded or additional functionality for Next.js Commerce
-
-- [Orama](https://github.com/oramasearch/nextjs-commerce) ([Demo](https://vercel-commerce.oramasearch.com/))
-
-  - Upgrades search to include typeahead with dynamic re-rendering, vector-based similarity search, and JS-based configuration.
-  - Search runs entirely in the browser for smaller catalogs or on a CDN for larger.
-
-- [React Bricks](https://github.com/ReactBricks/nextjs-commerce-rb) ([Demo](https://nextjs-commerce.reactbricks.com/))
-  - Edit pages, product details, and footer content visually using [React Bricks](https://www.reactbricks.com) visual headless CMS.
-
-## Running locally
-
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js Commerce. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control your Shopify store.
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
+### Instalación
 
 ```bash
+# Clonar el repositorio
+git clone https://github.com/cristiansk8/pinneacle.git
+cd pinneacle
+
+# Instalar dependencias
 pnpm install
+
+# Configurar variables de entorno
+cp .env.example .env.local
+```
+
+### Configuración de Variables de Entorno
+
+Crear archivo `.env.local`:
+
+```env
+# WooCommerce GraphQL API
+NEXT_PUBLIC_WOOCOMMERCE_URL=https://tu-sitio.com
+NEXT_PUBLIC_WOOCOMMERCE_CONSUMER_KEY=tu_consumer_key
+NEXT_PUBLIC_WOOCOMMERCE_CONSUMER_SECRET=tu_consumer_secret
+
+# Configuración del sitio
+NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
+NEXT_PUBLIC_PHONE_NUMBER=56946152919
+```
+
+### Ejecutar en Desarrollo
+
+```bash
 pnpm dev
 ```
 
-Your app should now be running on [localhost:3000](http://localhost:3000/).
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
-<details>
-  <summary>Expand if you work at Vercel and want to run locally and / or contribute</summary>
+### Build de Producción
 
-1. Run `vc link`.
-1. Select the `Vercel Solutions` scope.
-1. Connect to the existing `commerce-shopify` project.
-1. Run `vc env pull` to get environment variables.
-1. Run `pnpm dev` to ensure everything is working correctly.
-</details>
+```bash
+pnpm build
+pnpm start
+```
 
-## Vercel, Next.js Commerce, and Shopify Integration Guide
+## 📁 Estructura del Proyecto
 
-You can use this comprehensive [integration guide](https://vercel.com/docs/integrations/ecommerce/shopify) with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.
+```
+pinneacle/
+├── app/                      # App Router de Next.js 15
+│   ├── api/                  # API Routes
+│   ├── cart/                 # Página del carrito
+│   ├── checkout/             # Página de checkout
+│   ├── product/[slug]/       # Páginas de producto
+│   ├── search/               # Páginas de búsqueda y categorías
+│   └── page.tsx              # Homepage
+│
+├── components/               # Componentes React
+│   ├── cart/                 # Sistema de carrito
+│   ├── custom/               # Componentes personalizados
+│   ├── layout/               # Layout components
+│   ├── product/              # Componentes de producto
+│   └── providers/            # Context providers
+│
+├── lib/                      # Utilidades y configuración
+│   └── woocommerce/          # Integración WooCommerce
+│
+└── docs/                     # Documentación técnica
+    ├── ARQUITECTURA_CARRITO.md
+    └── GUIA_DESARROLLO.md
+```
+
+## 🛠️ Stack Tecnológico
+
+### Frontend
+- **[Next.js 15](https://nextjs.org/)** - Framework React con App Router
+- **[React 19](https://react.dev/)** - Biblioteca de UI
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Framework CSS utilitario
+
+### Backend
+- **[WooCommerce GraphQL API](https://woocommerce.github.io/woocommerce-rest-api-docs/)** - Gestión de productos
+- **Next.js API Routes** - Endpoints personalizados
+
+### Herramientas
+- **ESLint** - Linting de código
+- **Prettier** - Formateo de código
+- **Sentry** - Monitoreo de errores
+
+## 📚 Documentación
+
+- **[Documentación Técnica](./DOCUMENTACION_TECNICA.md)** - Guía completa del proyecto
+- **[Arquitectura del Carrito](./docs/ARQUITECTURA_CARRITO.md)** - Sistema de carrito local
+- **[Guía de Desarrollo](./docs/GUIA_DESARROLLO.md)** - Convenciones y buenas prácticas
+
+## 🎨 Características de UI
+
+### Colores Corporativos
+```css
+Color principal: #101828 (azul oscuro)
+Hover: #1a2332 (azul ligeramente más claro)
+Invertido: Blanco con texto #101828
+```
+
+### Layout de Productos
+- **Mobile**: 2 columnas
+- **Desktop**: 4 columnas
+- **Gap**: 24px (1.5rem)
+
+### Componentes Principales
+- **WooNavbar**: Navegación con búsqueda AJAX y menú de categorías
+- **ProductDescriptionWoo**: Detalle de producto con variaciones
+- **CartDrawer**: Panel lateral del carrito
+- **RecentlyViewedProducts**: Productos vistos recientemente
+- **BannerCarousel**: Carrusel de banners principales
+
+## 🔧 Scripts Disponibles
+
+```bash
+# Desarrollo
+pnpm dev              # Servidor de desarrollo
+
+# Build
+pnpm build            # Build de producción
+pnpm start            # Iniciar producción
+
+# Calidad de código
+pnpm lint             # Ejecutar ESLint
+pnpm lint:fix         # Auto-corregir problemas
+pnpm prettier         # Formatear código
+pnpm prettier:check   # Verificar formateo
+pnpm test             # Ejecutar tests (lint + prettier)
+```
+
+## 🌐 Despliegue
+
+### Vercel (Recomendado)
+
+1. Fork el repositorio
+2. Importar en [Vercel](https://vercel.com)
+3. Configurar variables de entorno
+4. Deploy automático en cada push a `main`
+
+### Otros Proveedores
+
+El proyecto puede desplegarse en cualquier plataforma que soporte Next.js:
+- Netlify
+- Railway
+- AWS Amplify
+- Docker containers
+
+## 📱 Páginas del Sitio
+
+- **/** - Homepage con banners y productos destacados
+- **/search** - Buscador de productos
+- **/search/[collection]** - Páginas de categorías
+- **/product/[slug]** - Páginas individuales de producto
+- **/cart** - Carrito de compras
+- **/checkout** - Checkout vía WhatsApp
+
+### Páginas Informativas
+- **/politica-envios** - Política de envíos (Chile)
+- **/politica-reembolso** - Política de reembolsos
+- **/politica-proteccion-datos** - Protección de datos personales
+- **/terminos-y-condiciones** - Términos y condiciones
+- **/terminos-del-servicio** - Términos del servicio
+
+## 🛒 Carrito de Compras
+
+El carrito utiliza **localStorage** para persistencia:
+
+- ✅ Sin backend adicional
+- ✅ Persistencia entre sesiones
+- ✅ Actualizaciones optimistas
+- ✅ Soporte para cantidades y eliminación
+- ✅ Checkout vía WhatsApp
+
+## 🔍 Búsqueda AJAX
+
+Búsqueda en tiempo real con:
+- Debouncing de 300ms
+- Máximo 8 resultados
+- Formato CLP en precios
+- Imágenes y precios actualizados
+
+## 📞 Contacto
+
+- **Email**: contacto@pinneacleperfumeria.com
+- **Teléfono**: +56 9 4615 2919
+- **Sitio**: [pinneacleperfumeria.com](https://pinneacleperfumeria.com)
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'feat: add amazing feature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+Ver la [Guía de Desarrollo](./docs/GUIA_DESARROLLO.md) para más detalles sobre convenciones.
+
+## 📄 Licencia
+
+Este proyecto es propiedad de Pinneacle Perfumería. Todos los derechos reservados.
+
+## 👥 Autor
+
+**Cristian** - [Github](https://github.com/cristiansk8)
+
+---
+
+**Versión**: 1.0.0
+**Última actualización**: Marzo 2026
