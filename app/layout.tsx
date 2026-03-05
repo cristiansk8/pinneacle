@@ -3,7 +3,8 @@ import './globals.css';
 import { RecentlyViewedProvider } from '@/components/providers/RecentlyViewedProvider';
 import { CartProvider } from '@/components/providers/CartProvider';
 import { CartDrawer } from '@/components/cart/CartDrawer';
-import { generateOrganizationSchema, generateWebSiteSchema, JsonLdScript } from '@/lib/structured-data';
+import { generateOrganizationSchema, generateWebSiteSchema } from '@/lib/structured-data';
+import { JsonLdScript } from '@/lib/json-ld-script';
 
 export const metadata: Metadata = {
   title: {

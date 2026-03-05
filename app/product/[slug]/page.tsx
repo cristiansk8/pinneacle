@@ -3,7 +3,8 @@ import { WooNavbar } from '@/components/layout/navbar/woo-navbar';
 import FooterCustom from '@/components/custom/FooterCustom';
 import { ProductDescriptionWoo } from '@/components/product/ProductDescriptionWoo';
 import { ProductViewTracker } from '@/components/product/ProductViewTracker';
-import { generateProductSchema, generateBreadcrumbSchema, JsonLdScript } from '@/lib/structured-data';
+import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
+import { JsonLdScript } from '@/lib/json-ld-script';
 
 /**
  * PÁGINA INDIVIDUAL DE PRODUCTO - WooCommerce

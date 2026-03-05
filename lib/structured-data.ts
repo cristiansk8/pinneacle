@@ -2,9 +2,6 @@
  * Structured Data (JSON-LD) para SEO
  * Implementa schema.org para mejorar la visibilidad en Google
  */
-'use client';
-
-import Script from 'next/script';
 
 interface ProductSchemaProps {
   name: string;
@@ -124,17 +121,4 @@ export function generateWebSiteSchema() {
   };
 
   return schema;
-}
-
-/**
- * Componente para insertar JSON-LD en el head
- */
-export function JsonLdScript({ data }: { data: Record<string, unknown> }) {
-  return (
-    <Script
-      id={`json-ld-${JSON.stringify(data).slice(0, 20)}`}
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
 }
