@@ -2,6 +2,8 @@
  * Structured Data (JSON-LD) para SEO
  * Implementa schema.org para mejorar la visibilidad en Google
  */
+'use client';
+
 import Script from 'next/script';
 
 interface ProductSchemaProps {
